@@ -34,7 +34,7 @@ router.post('/signup',(req,res,next)=>{
                         password:hash,
                         name:req.body.name
                         });
-                        user2.save(function(err, res){
+                        user2.save(function(err, result){
                             if(!err)
                             { 
                                 console.log(result);
