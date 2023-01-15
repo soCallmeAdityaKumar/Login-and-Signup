@@ -35,7 +35,12 @@ router.post('/signup',(req,res,next)=>{
                         name:req.body.name
                         });
                         user2.save(function(err, res){
-                            if(!err) console.log(res);
+                            if(!err)
+                            { 
+                                console.log(result);
+                                res.send(result)
+                                return res.status(200).json(result);
+                            }
                             else console.log(err);
                         })
                 }
