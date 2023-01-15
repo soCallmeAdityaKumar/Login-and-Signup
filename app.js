@@ -5,7 +5,7 @@ const dotenv=require('dotenv').config()
 const mongoose=require('mongoose'); 
 const bodyParser=require('body-parser');
 const userRoutes=require('./apis/routes/user')
-const bseRoutes=require('./apis/routes/BSE');
+// const bseRoutes=require('./apis/routes/BSE');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://aditya:'+process.env.MONGO_ATLAS_PW+'@cluster0.j
     if(!err) console.log("connected");
     else console.log(err);
 });
-app.use('/BSE',bseRoutes);
+// app.use('/BSE',bseRoutes);
 app.use('/user',userRoutes);
 
 app.use((req,res,next)=>{

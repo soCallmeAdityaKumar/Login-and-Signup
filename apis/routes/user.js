@@ -5,6 +5,7 @@ const User=require('../models/user');
 const bcrypt=require('bcrypt');
 // const express = require('express');
 const jwt=require('jsonwebtoken');
+const { response } = require('../../app');
 
 
 
@@ -34,10 +35,15 @@ router.post('/signup',(req,res,next)=>{
                         password:hash,
                         name:req.body.name
                         });
-                        user2.save(function(err, res){
-                            if(!err) console.log(res);
+                        user2.save(function(err, result){
+                            if(!err){
+                                console.log(result);
+                                res.send(result)
+                                return res.status(200).json(result);
+                            } 
                             else console.log(err);
                         })
+                        
                 }
                 
                 
